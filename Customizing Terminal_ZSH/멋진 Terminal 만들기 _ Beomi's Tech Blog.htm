@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://beomi.github.io/2017/07/07/Beautify-ZSH/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>멋진 Terminal 만들기 | Beomi's Tech Blog</title>
+  <meta name="author" content="Junbum Lee">
+  <meta name="description" content="Beomi의 기술 블로그">
+  <meta property="og:title" content="멋진 Terminal 만들기 | Beomi&#39;s Tech Blog">
+  <meta property="og:url" content="https://beomi.github.io/2017/07/07/Beautify-ZSH/">
+  <meta property="og:site_name" content="Beomi&#39;s Tech Blog">
+  <meta property="og:description" content="Beomi의 기술 블로그">
+  <meta property="og:image" content="https://d1sr4ybm5bj1wl.cloudfront.net/img/Beautify-ZSH.png">
+  <meta property="og:type" content="blog">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Beomi의 기술 블로그">
+  <meta name="twitter:title" content="멋진 Terminal 만들기 | Beomi&#39;s Tech Blog">
+  <meta name="twitter:url" content="https://beomi.github.io/2017/07/07/Beautify-ZSH/">
+  <meta name="twitter:site" content="Beomi&#39;s Tech Blog">
+  <meta name="twitter:creator" content="@">
+  <meta name="twitter:domain" content="https://beomi.github.io">
+  <meta property="twitter:image" content="https://d1sr4ybm5bj1wl.cloudfront.net/img/Beautify-ZSH.png">
+
+  <link rel="stylesheet" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/normalize.css">
+  <link rel="stylesheet" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/main.css">
+  <link rel="alternate" type="application/rss+xml" title="Beomi&#39;s Tech Blog" href="https://beomi.github.io/feed.xml">
+  <link rel="canonical" href="https://beomi.github.io/2017/07/07/Beautify-ZSH/">
+  <link rel="stylesheet" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/syntax.css">
+  <link rel="stylesheet" type="text/css" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/SpoqaHanSans-kr.min.css">
+  <script async="" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/analytics.js"></script><script src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/osd.js"></script><script async="" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/f.txt"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-5268890687595253",
+      enable_page_level_ads: true
+    });
+  </script>
+<link rel="preload" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/f(1).txt" as="script"><script type="text/javascript" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/f(1).txt"></script><link rel="preload" href="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/f(2).txt" as="script"><script type="text/javascript" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/f(2).txt"></script><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20190924/r20190131/show_ads_impl.js" as="script"></head>
+
+
+  <body>
+    <main><article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="https://beomi.github.io/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url(&#39;https://d1sr4ybm5bj1wl.cloudfront.net/img/Beautify-ZSH.png&#39;);"></figure>
+    <div class="mast__container">
+      <span><time datetime="2017-07-07T00:00:00+09:00" itemprop="datePublished">Jul 7, 2017</time></span>
+      <h1 itemprop="name headline">멋진 Terminal 만들기</h1>
+      
+        <span>Posted in 
+          
+            <a class="nav--white" href="https://beomi.github.io/category/macos">macos</a>
+          
+        </span>
+      
+      <span></span>
+    </div>
+  </header>
+
+  
+
+  <section class="section-padding bg-grey" itemprop="articleBody">
+    <div class="post">
+      <blockquote>
+  <p>이번 가이드는 macOS를 위한 가이드입니다.</p>
+</blockquote>
+
+<p>맥을 개발용으로 사용하는 경우 터미널을 좀 더 편리하고 다양하게 사용하는 방법 중 기본 Shell인 <code class="highlighter-rouge">bash</code>대신 <code class="highlighter-rouge">zsh</code>을 사용하는 경우가 많습니다. 그리고 <code class="highlighter-rouge">oh-my-zsh</code>을 함께 사용해 더 많은 기능을 편리하게 깔수 있기도 합니다. 물론 <code class="highlighter-rouge">oh-my-zsh</code>의 기본 테마인 <code class="highlighter-rouge">robbyrussell</code>도 예쁘지만, 약간 아쉬운 점이 남기도 하죠. 좀 더 예쁘고 사용하고싶어지는 기분이 들도록 <code class="highlighter-rouge">agnoster</code>테마를 깔고 <code class="highlighter-rouge">Oceanic Next</code>색 테마를 입힌 후 터미널에서 사용하는 명령어가 제대로 쳤는지 확인해주는 <code class="highlighter-rouge">zsh-syntax-highlighting</code>를 깔아봅시다. 참, 터미널은 <code class="highlighter-rouge">iTerm2</code>라는 멋진 맥용 터미널을 먼저 깔아야 해요.</p>
+
+<blockquote>
+  <p>앞으로 나오는 가이드는 이미 깐 경우 Pass해주시면 됩니다.</p>
+</blockquote>
+
+<h2 id="iterm2-설치하기"><a href="https://www.iterm2.com/downloads.html">iTerm2</a> 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/iTerm2_logo.jpg" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>우선 <a href="https://www.iterm2.com/downloads.html">iTerm2 다운로드 페이지</a>에 들어가서 iTerm2를 받아주세요.</p>
+
+<p><img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/iTerm2_download.png" alt="iTerm2 Download Page"></p>
+
+<p>Stable Releases중 최신 버전을 받아주세요. 다운 받은 후 압축을 풀면 iTerm2라는 맥 앱이 생길거에요. 맥 파인더에서 ‘응용 프로그램’으로 iTerm2를 옮겨주세요.</p>
+
+<h2 id="homebrew-설치하기"><a href="https://brew.sh/">HomeBrew</a> 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/homebrew_logo.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>우분투의 APT와 비슷하게 프로그램 패키지를 관리해 주는 프로그램이 있습니다. 바로 <code class="highlighter-rouge">HomeBrew</code>라는 프로그램인데요, <code class="highlighter-rouge">brew</code>라는 명령어로 패키지를 관리할 수 있습니다.</p>
+
+<blockquote>
+  <p>HomeBrew 공식 홈페이지는 <a href="https://brew.sh/">https://brew.sh/</a>입니다.</p>
+</blockquote>
+
+<p>아래 명령어를 터미널에 입력해주세요.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby <span class="nt">-e</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="zsh-설치하기">Zsh 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/zsh.jpg" style="display:inline-block;max-height: 250px">
+</div>
+
+<p><code class="highlighter-rouge">zsh</code>은 <code class="highlighter-rouge">bash</code>에 추가적인 명령어를 추가하고 편의성을 개선한 새로운 쉘입니다. 한가지 예로 <code class="highlighter-rouge">git</code> 폴더 상태를 관리해주고 터미널에 상태를 나타내주는 점 등이 있습니다.</p>
+
+<p>zsh은 위에서 설치한 <code class="highlighter-rouge">brew</code>를 통해 설치할 수 있습니다. 아래 명령어를 터미널에 입력해 주세요.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install zsh
+</code></pre></div></div>
+
+<h2 id="ohmyzsh-설치하기">OhMyZsh 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/ohmyzsh_logo.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p><code class="highlighter-rouge">oh-my-zsh</code>은 <code class="highlighter-rouge">zsh</code>을 좀 더 편리하게 이용하게 이용해주는 일종의 <code class="highlighter-rouge">zsh</code> 플러그인입니다. <code class="highlighter-rouge">oh-my-zsh</code>은 아래 명령어를 통해 설치할 수 있습니다. 터미널에 아래 명령어를 입력해주세요.</p>
+
+<blockquote>
+  <p>OhMyZsh을 설치하면 기본 쉘을 <code class="highlighter-rouge">zsh</code>로 바꾸기 위해 맥 잠금해제 암호를 물어봅니다. 암호 입력시에는 입력해도 <code class="highlighter-rouge">*</code>같은 표시는 뜨지 않으니 그냥 입력하고 엔터를 눌러주세요!</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh <span class="nt">-c</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-fsSL</span> https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="k">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="oceanic-next-iterm-색-테마-입히기"><a href="https://github.com/mhartington/oceanic-next-iterm">Oceanic Next iTerm</a> 색 테마 입히기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/oceanic_next_color_scheme.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p><code class="highlighter-rouge">oceanic-next-iterm</code>을 이용해 터미널의 색 테마를 바꿔봅시다. 우선 <a href="https://github.com/mhartington/oceanic-next-iterm/archive/master.zip">master.zip</a> 파일을 받아줍시다.</p>
+
+<p><code class="highlighter-rouge">master.zip</code>파일의 압축을 풀어주면 <code class="highlighter-rouge">Oceanic-Next.itermcolors</code>파일을 보실 수 있으실텐데요, 이 파일을 더블클릭으로 실행하면 iTerm2의 색 테마에 추가가 됩니다.</p>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/Oceanic-Next.itermcolors.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>iTerm2를 실행하고 맥 화면 상단 좌측의 사과 아이콘 옆 iTerm2를 누르고 나오는 메뉴 중 ‘Preferences…‘를 눌러주세요.</p>
+
+<p><img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/Oceanic-Next.itermcolors2.png" alt=""></p>
+
+<p>이제 위 스크린샷처럼 Profiles &gt; Default &gt; Colors &gt; Color Presets… &gt; Oceanic-Next 로 차례대로 눌러주신 후 iTerm2를 껐다가 켜면 적용이 완료되어있을 거랍니다.</p>
+
+<h2 id="agnoster-테마-설치하기">Agnoster 테마 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/agnoster.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>이제 우리 zsh의 테마를 위 스크린샷처럼 <code class="highlighter-rouge">Agnoster</code>테마로 바꿔줍시다!</p>
+
+<p>텍스트 편집기(vi, sublimetext3, atom등)로 <code class="highlighter-rouge">~/.zshrc</code>파일을 열어주세요.</p>
+
+<p>만약 <code class="highlighter-rouge">.zshrc</code>파일에 특별한 수정을 하지 않았다면 10번째줄 처럼 <code class="highlighter-rouge">ZSH_THEME</code>를 설정하는 코드가 보일거에요. 이 줄을 아래 스크린 샷처럼 바꿔주세요.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">"agnoster"</span>
+</code></pre></div></div>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/agnoster.zshrc.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>이제 새 탭을 열면 Agnoster테마로 바뀐 쉘이 보일거에요! 하지만 이렇게 하면 폰트가 일부 깨진답니다. 아래 Ubuntu Mono Powerline폰트를 받아 설정을 진행해주세요.</p>
+
+<h2 id="ubuntu-mono-derivative-powerline-폰트-설치--설정하기">Ubuntu Mono derivative Powerline 폰트 설치 &amp; 설정하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/Ubuntu_Mono_derivative_Powerline.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>우선 <a href="https://beomi.github.io/others/Ubuntu_Mono_derivative_Powerline.ttf">Ubuntu_Mono_derivative_Powerline.ttf</a>를 다운받아 서체 설치를 진행해 주세요.</p>
+
+<p>서체 설치가 완료되면 iTerm2를 다시 실행해 주세요.</p>
+
+<blockquote>
+  <p>주의: 서체 설치 전 iTerm2이 켜져있었다면 완전히 종료 후 다시 켜 주세요. 켜져있는 상태에서 설정에 들어간다면 설치한 폰트가 뜨지 않을 수 있습니다!</p>
+</blockquote>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/Oceanic-Next.itermcolors.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>위에서 Oceanic Next 테마를 설치한 것과 같이 위 스크린샷처럼 Preferences..에 들어가 주세요.</p>
+
+<p><img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/iTerm2_Ubuntu_Mono1.png" alt=""></p>
+
+<p>그리고 위 사진처럼 Profiles &gt; Default &gt; Text &gt; ChangeFont를 눌러주세요. 그러면 아래와 같은 창이 뜹니다. 시스템에 깔린 모든 폰트가 나오기 때문에 ‘고정폭’을 먼저 선택하고 폰트를 선택해 주세요.</p>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/iTerm2_Ubuntu_Mono2.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<h2 id="zsh-syntax-highlighting-설치하기">zsh-syntax-highlighting 설치하기</h2>
+
+<div style="text-align: center;">
+<img src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/zsh-syntax-highlighting.png" style="display:inline-block;max-height: 250px">
+</div>
+
+<p>이제 시스템의 <code class="highlighter-rouge">PATH</code>에 등록된 명령어들을 자동으로 Syntax HighLighting을 해주는 <code class="highlighter-rouge">zsh-syntax-highlighting</code>를 설치해 봅시다.</p>
+
+<p>아래 명령어 두줄을 터미널에 입력해 주세요.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+<span class="nb">echo</span> <span class="s2">"source </span><span class="k">${</span><span class="p">(q-)PWD</span><span class="k">}</span><span class="s2">/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"</span> <span class="o">&gt;&gt;</span> <span class="k">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="k">}</span>/.zshrc
+</code></pre></div></div>
+
+<h2 id="수고하셨습니다-d">수고하셨습니다 :D</h2>
+
+<p>이제 모두 끝났습니다!! iTerm2를 완전히 종료한 후 다시 실행해 보면 잘 작동되는 것을 보실 수 있으실거에요!</p>
+
+    </div>
+  </section>
+
+  <section class="profile">
+    <div class="profile__card">
+      <div class="profile__img">
+        <figure class="absolute-bg" style="background-image: url(&#39;https://d1sr4ybm5bj1wl.cloudfront.net/img/profile_beomi.jpg&#39;);"></figure>
+      </div>
+      <div class="profile__container">
+        <p>파이썬, 웹, 데이터분석, 머신러닝 등 여러 분야에 관심이 많습니다. <br>글에 대한 문의 등의 연락은 아래 메일로 연락주세요.</p>
+        
+          <ul class="profile__social">
+            
+              <li><a class="fa fa-lg fa-envelope-o" href="mailto:jun@beomi.net"></a></li>
+            
+            
+              <li><a class="fa fa-lg fa-github" href="https://github.com/beomi" target="_blank"></a></li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </section>
+
+</article>
+
+
+  <section class="next">
+    <a class="next__link" href="https://beomi.github.io/2017/07/05/HowToMakeWebCrawler-with-Multiprocess/" style="background-image: url(&#39;https://d1sr4ybm5bj1wl.cloudfront.net/img/crawling_with_multiprocessing.png&#39;);">
+      <div class="next__container">
+        <span>Read Next</span>
+        <h2>나만의 웹 크롤러 만들기(6): N배빠른 크롤링, multiprocessing!</h2>
+      </div>
+    </a>
+  </section>
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5268890687595253",
+    enable_page_level_ads: true
+  });
+</script> -->
+</main>
+
+    <!-- <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="/assets/js/wow.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="/assets/js/app.js"
+></script>
+ -->
+    <!-- Google Analytics Tracking code -->
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/saved_resource.html"></iframe></ins></ins></ins><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89162642-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+<iframe id="google_osd_static_frame_3769850439388" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/saved_resource(1).html"></iframe></body><iframe id="google_shimpl" style="display: none;" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/saved_resource(2).html"></iframe><iframe id="google_esf" name="google_esf" src="./멋진 Terminal 만들기 _ Beomi&#39;s Tech Blog_files/zrt_lookup.html" data-ad-client="ca-pub-5268890687595253" style="display: none;"></iframe></html>
