@@ -3,7 +3,8 @@
 ## pre-setting
 
 
-
+#### 0. Check Java Installation
+- `/usr/libexec/java_home`
 #### 1. install Java8
 - `brew cask install homebrew/cask-versions/adoptopenjdk8`
 
@@ -15,11 +16,12 @@
 
 #### 4. environment path setting
 - `vi ~/.bash_profile`
-- insert contexts below
+- add following code to your `~/.bash_profile`
 
 ---
 ```
 # Setting PATH for Java8
+
 JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 PATH=$PATH:$JAVA_HOME/bin
 export JAVA_HOME
@@ -56,6 +58,9 @@ export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH
 - `source ~/.bash_profile`
 
 ## Pyspark on Jupyter notebook
+
+Method a)
+
 #### 1. Use findspark
 - `pip install findspark`
 ---
@@ -74,6 +79,17 @@ sc = pyspark.SparkContext(appName="myAppName")
 ```
 import os
 exec(open(os.path.join(os.environ["SPARK_HOME"], 'python/pyspark/shell.py')).read())
+```
+---
+
+Method b)
+
+### add following code to your `~/.bash_profile`
+
+---
+```
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 ```
 ---
 
