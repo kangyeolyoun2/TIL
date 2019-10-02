@@ -1,7 +1,8 @@
 # Installing Aparche Spark version 2.4.4
+
 ## requirements
-1. Java version 8
-- brew cask install homebrew/cas-versions/adoptopenjdk8
+#### 1. Java version 8
+- `brew cask install homebrew/cas-versions/adoptopenjdk8`
 
 2. environment path setting
 - vi ~/.bash_profile
