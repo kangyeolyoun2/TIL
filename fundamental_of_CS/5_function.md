@@ -34,13 +34,13 @@ if __name__ == "__main__":
 - 내부함수에서 다른 함수를 정의할 때 쓰는방법
 
 ```python
-def outer():
-    a = 2
+def outer():  
+    a = 2 #1
     b = 3
     
     def inner():
-        nonlocal a
-        a = 100
+        nonlocal a #2
+        a = 100 #3
     inner()
     
     print(
@@ -59,5 +59,59 @@ if __name__ == "__main__":
 
 ###3.1 값에 의한 전달(call by value) 
 - 파이썬에서는 없는 개념
+
+---
+```c++
+#include <iostream>
+using namespace std;
+
+void change_value(int x, int value) // #1
+{
+    x = value; // #2
+    cout << "x : " << x << " in change_value" << endl;
+    
+}
+
+int main(void)
+{
+    int x = 10;  // #3
+    change_value(x, 20);  //#4
+    cout << "x : " << x << " in main" << endl;
+    
+    return 0;
+    
+}
+
+```
+    `x : 20 in change_value`
+    `x : 10 in main`
+---
+
+
+
+---
+```c++
+#include <iostream>
+using namespace std;
+
+int test(int a, int b);
+
+int main(void)
+{
+    int a = 10, b = 5; // #4
+    int res = test(a, b); // %5
+    cout << "result of test: " << res << endl;
+    return 0;
+}
+
+int test(int a, int b) // # 1
+{
+    int c = a + b; // #2
+    int d = a - b; // #3
+    return c + d;
+}
+---
+- 결과 값은 다음 이미지와 함께보자
+<img src="./img/5-2.png" width="40%">
 
 
