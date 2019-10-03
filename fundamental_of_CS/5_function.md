@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
 ## 3. 인자 전달 방식에 따른 분류
 
-###3.1 값에 의한 전달(call by value) 
+### 3.1 값에 의한 전달(call by value) 
 - 파이썬에서는 없는 개념
 
 ---
@@ -120,7 +120,7 @@ int test(int a, int b) // # 1
 
 
 
-###3.2 참조에 의한 전달(call by reference)
+### 3.2 참조에 의한 전달(call by reference)
 
 
 ---
@@ -142,16 +142,17 @@ int main(void)
     return 0;
 }
 ```
-    ` x : 20 in change_value`
-    ` x : 20 in main`
+    `x : 20 in change_value`
+    `x : 20 in main`
 ---
 
 -  `int *`은 int형 포인터를 의미합니다 #1
 
+- ` #4번 실행전`
 <img src="./img/5-6.png" width="40%">
-- `#4번 실행전`
+
+- ` #4번 실행 후`
 <img src="./img/5-7.png" width="40%">
-- `#4번 실행 후`
 
 
 ### 3.3 객체 참조에 의한 전달(Python)
@@ -183,7 +184,7 @@ if __name__ == "__main__":
     func(li)
 ```
     [1, 2, 3, 4]
-—
+—--
 
 - Code 1: 참조한 리스트에 접근해 변경을 시도
 <img src="./img/5-3-3-1.jpeg" width="60%">
@@ -195,7 +196,7 @@ if __name__ == "__main__":
 ### 3.4 변경 불가능 객체는 함수 인자로 전달해 변경할 수 없을까?
 - 아래 방법과 같이 return으로 객체를 전달해 주는 방식으로 해결!
 
-—
+—--
 ```python
 def change_value(tu):
     tu = ('I am your father!', 2, 3, 4)
@@ -207,7 +208,7 @@ if __name__ == "__main__":
     print(tu)
 ```
     ('I am your father!', 2, 3, 4)
-—
+—--
 
 ## 4. 람다 함수
 - 이름이 없는 함수, 다음 행으로 넘어가면 다시 사용 불가
@@ -220,8 +221,8 @@ li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 li.sort(key = lambda x: x % 2 ==0)
 
 li
-[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 ```
-    `람다 함수에는 return값이 없기 때문에, 반드시 식이 들어가야 합니다.`
+	[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 ---
 
+-  `람다 함수에는 return값이 없기 때문에, 반드시 식이 들어가야 합니다.`
