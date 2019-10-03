@@ -110,8 +110,47 @@ int test(int a, int b) // # 1
     int d = a - b; // #3
     return c + d;
 }
+```
 ---
 - 결과 값은 다음 이미지와 함께보자
 <img src="./img/5-2.png" width="40%">
 
+- 위 식에서 main()함수가 먼저 실행되므로 스택 프레임이 먼저 쌓이고,
+- main() 함수 안에서 호출한 test() 함수의 스택 프레임은 그 위에 쌓입니다.
+- 그림에서 보는거과 같이 test()와 main()은 독립된 공간이고, test()의 함수가 실행후 스택 프레임이 사라지게 됩니다.
+- 이처럼 test() 함수의 스택 프레임의 지역 변수 a와 b값만 복사하였습니다. 이것을 값에의한 전달(call by value)라 합니다.
+
+
+###3.2 참조에 의한 전달(call by reference)
+
+
+---
+```c++
+#include <iostream>
+using namespace std;
+
+void change_value(int *x, int value) //#1
+{
+    *x = value; //#2
+    cout << "x : " << *x << " in change_value" << endl;
+}
+
+int main(void)
+{
+    int x = 10; // #3
+    change_value(&x, 20); // #4
+    cout << "x : " << x << " in main" << endl;
+    return 0;
+}
+```
+    ` x : 20 in change_value`
+    ` x : 20 in main`
+---
+
+-  `int *`은 int형 포인터를 의미합니다 #1
+
+<img src="./img/5-6.png" width="40%">
+- #4번 실행전
+<img src="./img/5-7.png" width="40%">
+- #4번 실행 후
 
