@@ -33,4 +33,4 @@ if __name__ == "__main__":
 ## 2. nonlocal 키워드
 - 내부함수에서 다른 함수를 정의할 때 쓰는방법
 
-<img src="./img/5-2.png" width="40%">
+<img src="./img/5-4.png" width="40%">
