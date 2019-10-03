@@ -33,7 +33,22 @@ if __name__ == "__main__":
 ## 2. nonlocal 키워드
 - 내부함수에서 다른 함수를 정의할 때 쓰는방법
 
-<img src="./img/5-4.png" width="60%">
+```python
+def outer():
+    a = 2
+    b = 3
+    
+    def inner():
+        nonlocal a
+        a = 100
+    inner()
+    
+    print(
+    "locals in outer : a = {}, b = {}".format(a, b))
+
+if __name__ == "__main__":
+    outer()
+```
 
     'locals in outer : a = 100, b = 3
     
