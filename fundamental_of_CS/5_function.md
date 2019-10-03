@@ -33,4 +33,16 @@ if __name__ == "__main__":
 ## 2. nonlocal 키워드
 - 내부함수에서 다른 함수를 정의할 때 쓰는방법
 
-<img src="./img/5-4.png" width="40%">
+<img src="./img/5-4.png" width="60%">
+
+    'locals in outer : a = 100, b = 3
+    
+- #2에서 nonlocal 키워드로 inner() 함수 안에서 outer() 함수의 지역변수 a를 사용할것으로 선언
+
+
+## 3. 인자 전달 방식에 따른 분류
+
+###3.1 값에 의한 전달(call by value) 
+- 파이썬에서는 없는 개념
+
+
