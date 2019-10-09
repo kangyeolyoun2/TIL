@@ -127,13 +127,179 @@ if __name__ == "__main__":
 ```
 
 
-    `static method`
-    `A`
+    static method
+    A
 - #1 정적 메서드: 인자로 클래스나 객체를 받지 않음. 전역 함수를 대체
 - #2 첫번째 인자로 클래스 A를 받습니다.
 ---
 
-### 3.5 정보 은닉
+### 3.5.1 정보 은닉(c++)
 - 특정 멤버와 메서드를 숨겨 유저 프로그래머가 접근할 수 없도록 정하는것
 
+---
+```c++
+class Account{
+public: // #1
+    // 생성자: 파이썬 클래스의 __init__()과 같다
+    Account(string name, int money){
+        user = name;
+        balance = money;
+    }
+    // 인스턴스 메서드(멤버 함수)
+    int get_balance() {
+        return balance;
+    }
+    
+    // 인스턴스 메서드(멤버 함수)
+    void set_balance(int money){
+        if (money < 0) {
+            return;
+        }
+        
+        balance = money;
+    }
+private: // #2
+    // 인스턴스 멤버(멤버 변수)
+    string user;
+    int balance; // #3
+};
+```
 
+- #1 public: 유저 프로그래머가 접근하거나 호출 가능
+- #2 private: 클래스 안에서만 사용가능, 객체 안에서는 접근, 호출 x
+- 숨겨진 balance 멤버에 접근하기 위한 get_balance, set_balance 등이 액세스 함수
+---
+
+### 3.5.2 정보 은닉(python)
+- 파이썬은 정보은닉을 기본적으로 지원 x
+- 대체방안으로 1) 숨기려는 멤버앞 `__` 붙이기 2) 프로퍼티 기법 사용
+
+---
+```python
+# property 기법
+
+class Account:
+    def __init__(self, name, money):
+        self.user = name
+        # #3의 setter메서드를 호출
+        self.balance = money #1
+        
+    @property
+    def balance(self):
+        return self._balance #2 (def get_balance 대신사용)
+    
+    @balance.setter
+    def balance(self, money): #3 (def set_balance 대신 사용)
+        if money < 0:
+            return
+        
+        #실제 인스턴스 멤버 선언이 일어나는 부분(#1)
+        self._balance = money
+        
+if __name__ == "__main__":
+    my_acnt = Account("greg", 5000)
+    my_acnt.balance = -3000 #4
+    
+    print(my_acnt.balance) #5
+
+```
+- 유저 프로그래머가 실제 멤버인 _balance에 접근
+- #4 setter 함수인 balance()메서드를 호출. setter 함수를 통해 변경 시도하므로 _balance멤버의 값은 음수로 변경되지 않음
+- 파이썬은 완벽한 정보 은닉 제공x (my_acnt._balance = -3000 등으로 접근시, my_acnt.balance 값은 -3000 이 됨)
+---
+
+## 4. DataHandler 클래스 만들기
+- cache(일종의 저장 장소)를 두어 연산 결과를 저장하고, 필요한 만큼만 연산
+
+---
+```python
+#DataHandler 클래스 만들기
+import os, stat
+from statistics import *
+import openpyxl
+
+class DataHandler:
+    evaluator = Stat() #1
+    @classmethod
+    def get_data_from_excel(cls, filename): #2
+        dic = {}
+        wb = openpyxl.load_workbook(filename)
+        ws = wb.active
+        g = ws.rows
+        
+        for name, score in g:
+            dic[name.value] = score.value
+            
+        return dic
+    
+    def __init__(self, filename, year_class):
+        self.rawdata = DataHandler.get_data_from_excel(filename)
+        self.year_class = year_class
+        #연산할 값을 저장해 두는 저장소
+        # 필요할 떄 연산하되
+        # 이미 연산된 값이면 연산 없이 저장된 값을 반환
+        self.cache = {} #3
+        
+    def get_scores(self):
+        if 'scores' not in self.cache:
+            self.cache['scores'] = list(self.rawdata.values())
+            
+        return self.cache.get('scores')
+    
+    def get_average(self): #4
+        if 'average' not in self.cache: #5
+            self.cache['average'] = self.evaluator.average(self.get_scores())
+            
+        return self.cache.get('average')
+    
+    def get_variance(self):
+        if 'variance' not in self.cache:
+            self.cache['variance'] = self.evaluator.variance(self.get_scores(), self.get_average())
+            
+        return self.cache.get('variance')
+
+    def get_standard_deviation(self):
+        if 'standard_deviation' not in self.cache:
+            self.cache['standard_deviation'] = self.evaluator.std_dev(self.get_variance())            
+            
+        return self.cache.get('standard_deviation')
+    
+    def evaluate_class(self, total_avrg, sd): #7
+        avrg = self.get_average()
+        std_dev = self.get_standard_deviation()
+        
+        
+        if avrg < total_avrg and std_dev > sd:
+            print("성적 너무 저조, 학생들 실력차 큼")
+        elif avrg > total_avrg and std_dev > sd:
+            print("성적 평균 이상, 학생들 실력차 큼, 주의요망!")
+        elif avrg < total_avrg and std_dev < sd:
+            print("실력차이는 크지않음. 성적이 너무 저조! 주의요망")
+        elif avrg > total_avrg and std_dev < sd:
+            print("성적 평균이상, 실력차도 크지 않음")
+            
+    def get_evaluation(self, total_avrg, sd = 20): #8
+        print("*" * 50)
+        print("{} 반 성적 분석 결과".format(self.year_class))
+        print(
+        "{0}반의 평균은 {1}점이고 분산은 {2}이며 따라서 표준편차는 {3}이다.".format(
+            self.year_class,
+            self.get_average(),
+            self.getvariance(),
+            self.get_standard_deviation()))
+        print("*" * 50)
+        print("{} 반 종합 평가".format(self.year_class))
+        print("*" * 50)
+        self.evaluate_class(total_avrg, sd)
+    
+```
+
+
+    #실행
+    from datahandler import *
+
+    dh = DataHandler("class_2_3.xlsx", "2-3")
+    dh.get_evaluation(50)
+
+
+---
