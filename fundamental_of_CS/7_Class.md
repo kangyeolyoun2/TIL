@@ -147,3 +147,60 @@ if __name__ == "__main__":
 - #6, #7 같은 이름의 메서드를 호출해도, 호출한 객체에 따라 다른 결과를 내는것을 `다형성` 이라고 합니다. 
 ---
 
+## 3. 클래스 설계
+`주의점!`
+- 공통 부분을 기본 클래스로 묶는다.
+- 부모가 추상 클래스 제외, 자녀 클래스에서 부모 클래스의 메서드를 여러차례 오버라이딩시, 파생클래스 x
+
+
+
+## 4. 연산자 오버로딩
+- `연산자 오버로딩(operator overloading)`은 클래스 안에서 메서드로 연산자를 새롭게 구현하는 것. `다형성`의 특별한 형태
+- 객체나 일반적인 피연산자와 연산하는것이 가능해진다.
+
+---
+```python
+class Point:
+    def __init__(self, x = 0, y = 0):
+        self.x = x
+        self.y = y
+        
+    def set_point(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def get_point(self):
+        return self.x, self.y
+    
+    def __str__(self):
+        return "({x}, {y})".format(x = self.x, y = self.y)
+    
+    # 더하기 연산자(+) 오버로딩
+    
+    def __add__(self, n): #1
+        x = self.x + n
+        y = self.y + n
+        return Point(x, y)
+    
+    def __radd__(self, n): #2
+        x = self.x + n
+        y = self.y + n
+        return Point(x, y)
+    
+    
+    
+if __name__ =="__main__":
+    p1 = Point(2, 2)
+    p2 = p1 + 3 #3
+    p3 = 3 + p1 #4
+    
+    
+    
+print(p2)
+print(p3)
+```
+
+- #1 추가 안해줄 경우, #3이 에러가 납니다, 추가시 p2 = p1+3을 만날시, __add__()를 호출하여 p1.__add__(3)변경되어 정상 작동
+- #2 를 추가 안해줄 경우 #4 가 에러납니다. 추가시 위와 동일한 원리로 작동
+- `add`, `sub`, `mul`, `truediv`, `floordiv` 등 여러 메서드는 문법책 참고
+---
