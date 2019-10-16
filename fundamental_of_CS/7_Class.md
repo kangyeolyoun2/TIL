@@ -344,4 +344,3 @@ class Medic(Human):
 
 ### 클래스 생성후 활용
 <img src="./img/7_class_practice_3.png" width="100%">
-7_class_practice_3.png
