@@ -8,7 +8,7 @@
 - 다른 프로그래머가 봐도 프로그램의 실행 흐름을 매우 쉽게 파악할 수 있음
 
 ```python
-    from functions import *
+from functions import *
 
 if __name__ == "__main__":
     raw_data = get_data_from_excel("class_2_3.xlsx") #1
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 ### 2.1 캡슐화(encapsulation)
 - 연관 있는 변수(데이터)와 함수를 하나의 단위(클래스 등)으로 묶는것
 - 정보은닉 포함하는 개념
----
+
 ```python
 def person_init(name, money):
     obj = {"name" : name, "money" : money} #1
@@ -57,12 +57,12 @@ def show(self):
 - #1 두개의 변수(데이터)
 - #2 세개의 함수를 가진 객체
 - #3 처럼 다른 특정 함수 #4를 호출하여 상호작용하여 변하는것을 `message passing`이라고 함
----
+
 
 ### 2.2 클래스를 사용해 객체 만들기
 - `클래스` : 객체를 생성해 내는 템플릿
 - `객체` : 클래스를 이용해 만들어진 변수와 함수를 가진 메모리 공간
----
+
 ```python
 class Person: #1
     def __init__(self, name, money): #2
@@ -83,10 +83,10 @@ class Person: #1
 - #2 클래스로 묶이는 변수를 멤버 
 - #2 __init__()은 `생성자`: 인스턴스 멤버를 초기화
 - #4 부터 인스턴스가 갖게 될 메서드
----
+
 
 ### 3.3 클래스 멤버와 메서드
----
+
 ```python
 class A:
     c_mem = 10 #1
@@ -108,10 +108,10 @@ if __name__ == "__main__":
 - #1 클래스 멤버, #4 클래스 메서드 : 객체가 없어도 클래스를 통해 접근하거나 호출가능. 
 - 전역변수, 전역 함수를 클래스 멤버, 메서드를 통해 대체할 수 있다.
 - 모든 객체가 클래스 멤버를 공유
----
+
 
 ### 3.4 클래스 메서드, 정적 메서드
----
+
 ```python
 class A:
     @staticmethod
@@ -134,12 +134,12 @@ if __name__ == "__main__":
     A
 - #1 정적 메서드: 인자로 클래스나 객체를 받지 않음. 전역 함수를 대체
 - #2 첫번째 인자로 클래스 A를 받습니다.
----
+
 
 ### 3.5.1 정보 은닉(c++)
 - 특정 멤버와 메서드를 숨겨 유저 프로그래머가 접근할 수 없도록 정하는것
 
----
+
 ```c++
 class Account{
 public: // #1
@@ -171,13 +171,13 @@ private: // #2
 - #1 public: 유저 프로그래머가 접근하거나 호출 가능
 - #2 private: 클래스 안에서만 사용가능, 객체 안에서는 접근, 호출 x
 - 숨겨진 balance 멤버에 접근하기 위한 get_balance, set_balance 등이 액세스 함수
----
+
 
 ### 3.5.2 정보 은닉(python)
 - 파이썬은 정보은닉을 기본적으로 지원 x
 - 대체방안으로 1) 숨기려는 멤버앞 `__` 붙이기 2) 프로퍼티 기법 사용
 
----
+
 ```python
 # property 기법
 
@@ -210,12 +210,12 @@ if __name__ == "__main__":
 - #4 setter 함수인 balance()메서드를 호출. setter 함수를 통해 변경 시도하므로 _balance멤버의 값은 음수로 변경되지 않음
 - 파이썬은 완벽한 정보 은닉 제공x (my_acnt._balance = -3000 등으로 접근시, my_acnt.balance 값은 -3000 이 됨)
 - 숨기려는 멤버 앞에 `__` 붙이기
----
+
 
 ## 4. DataHandler 클래스 만들기
 - cache(일종의 저장 장소)를 두어 연산 결과를 저장하고, 필요한 만큼만 연산
 
----
+
 ```python
 #DataHandler 클래스 만들기
 import os, stat
@@ -306,4 +306,4 @@ class DataHandler:
     dh.get_evaluation(50)
 
 
----
+
