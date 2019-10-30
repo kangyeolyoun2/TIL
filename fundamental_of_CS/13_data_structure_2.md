@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
 ### 13.3.1 트리 노드 구현
 - 클래스 멤버가 3개
-    - 데이터 탐는 __data
+    - 데이터 담는 __data
     - 왼쪽 자식노드 가리키는 __left
     - 오른쪽 자식노드 가리키는 __right
     
@@ -278,7 +278,7 @@ if __name__ == "__main__":
     
 - `재귀`를 통해 모든 노드를 방문합니다.
 
-<img src="./img/13_16.png" width="60%">
+<img src="./img/13_16.png" width="100%">
 
 <구현>
 
@@ -335,7 +335,7 @@ if __name__ == "__main__":
     bt.inorder_traverse(bt.get_root(), f)
     print()
              
-    #후위 순회 : 1 2 4 5 3 6 7
+    #후위 순회 : 4 5 2 6 7 3 1
     bt.postorder_traverse(bt.get_root(), f)
     print ()         
     
