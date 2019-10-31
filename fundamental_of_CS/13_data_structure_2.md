@@ -117,11 +117,12 @@ if __name__ == "__main__":
 ```python
 
 class TreeNode:
+    
     def __init__(self):
         self.__data = None
         self.__left = None
         self.__right = None
-
+        
     def __del__(self):
         print("TreeNode of {} is deleted".format(self.data))
         
@@ -140,7 +141,7 @@ class TreeNode:
     @left.setter
     def left(self, left):
         self.__left = left
-        
+    
     @property
     def right(self):
         return self.__right
@@ -160,10 +161,10 @@ class TreeNode:
 
 ```python
 class BinaryTree:
-    def __init__(self):
-        # 루트 노트를 가지키는 root는 1개
-        self.root = None
     
+    def __init__(self):
+        self.root = None
+        
     # 루트 노드 반환
     def get_root(self):
         return self.root
@@ -171,37 +172,38 @@ class BinaryTree:
     # 루트 노드 설정
     def set_root(self, r):
         self.root = r
-
         
-    # 새로운 노드를 만들어 반환
+    # 새로운 노드를 만들어서 반환
     def make_node(self):
         new_node = TreeNode()
         return new_node
     
     # 노드의 데이터 반환
     def get_node_data(self, cur):
-        return cur.get_data()
+        return cur.data
     
     # 노드의 데이터 설정
     def set_node_data(self, cur, data):
-        cur.set_data(data)
+        cur.data = data
 ```
 ### 13.3.3 서브트리 관련 메서드 구현
 
 ```python
-    # 왼쪽 서브트리 반환
+    # 왼쪽 서브 트리 반환
     def get_left_sub_tree(self, cur):
         return cur.left
-    # 오른쪽 서브트리 반환
+    
+    # 오른쪽 서브 트리 반환
     def get_right_sub_tree(self, cur):
         return cur.right
-    # 왼쪽 서브트리 생성
-    def make_left_sub_tree(self, cur, elft):
-        cur.left =left
-    # 오른쪽 서브트리 반환
+    
+    # 왼쪽 서브 트리 생성
+    def make_left_sub_tree(self, cur, left):
+        cur.left = left
+        
+    # 오른쪽 서브 트리 생성
     def make_right_sub_tree(self, cur, right):
         cur.right = right
-
 ```
 
 
@@ -214,52 +216,43 @@ class BinaryTree:
 ```python
 
 if __name__ == "__main__":
-    # 이진 트리 객체 생성
+    
     bt = BinaryTree()
-    
-    #노드 생성, 이진 트리 객체로 노드 생성
     n1 = bt.make_node()
+    bt.set_node_data(n1, 1)
     
-    bt.set_node_data(n1, 1) 
-    
-    # 노드 데이터 설정, 이진 트리 객체로 노드의 데이터를 설정
+    # 노드 생성 및 노드의 데이터 설정
     n2 = bt.make_node()
     bt.set_node_data(n2, 2)
     
-    n3 = bt.make_node
-    bt.set_node.data(n3, 3)
+    n3 = bt.make_node()
+    bt.set_node_data(n3, 3)
     
-    n4 = bt.make_node
-    bt.set_node.data(n4, 4)
+    n4 = bt.make_node()
+    bt.set_node_data(n4, 4)
     
-    n5 = bt.make_node
-    bt.set_node.data(n5, 5)
+    n5 = bt.make_node()
+    bt.set_node_data(n5, 5)
     
-    n6 = bt.make_node
-    bt.set_node.data(n6, 6)
+    n6 = bt.make_node()
+    bt.set_node_data(n6, 6)
     
-    n7 = bt.make_node
-    bt.set_node.data(n7, 7)
+    n7 = bt.make_node()
+    bt.set_node_data(n7, 7)
     
-    
-    #만든 노드들을 그림과 같이 설정하기!!!!!!!
-    
-    # n1을 루트 노드로 설정
+    # 루트 노드 설정
     bt.set_root(n1)
     
-    # 루트 노드의 왼쪽 자식 노드로 노드2 설정!
+    # 루트 노드의 왼쪽 자식 노드 설정
     bt.make_left_sub_tree(n1, n2)
+    # 루트 노드의 오른쪽 자식 노드 설정
+    bt.make_right_sub_tree(n1, n3)
     
-    # 루트 노드의 오른쪽 자식노드로 노드3 설정!
-    bt.make_left_sub_tree(n1,n3)
-    
-    # 노드2의 왼쪽과 오른쪽으로 4번5번설정!
     bt.make_left_sub_tree(n2, n4)
     bt.make_right_sub_tree(n2, n5)
     
-    # 노드 3의 왼쪽과 오른쪽으로 6번7번 설정!
     bt.make_left_sub_tree(n3, n6)
-    bt.make_right_sub_tree(n3, n7)
+    bt.make_right_sub_tree(n3, n7)m
     
     
 
@@ -288,7 +281,7 @@ if __name__ == "__main__":
     #전위 순회
     #cur: 방문 노드, func : 데이터 처리 함수
 
-    def preoder_traverse(self, cur, func):
+    def preorder_traverse(self, cur, func):
         #탈출 조건
         #방문한 노드가 빈 노드일떄
         if not cur:
@@ -317,26 +310,26 @@ if __name__ == "__main__":
             return
              
         self.postorder_traverse(cur.left, func)
-        self.postorder_praverse(cur.right, func)
+        self.postorder_traverse(cur.right, func)
         func(cur.data)
              
 ```
 
-<위의 if__name__ 에 이어서 확인해 봅시당>             
+<확인해 봅시당>          
              
 ```python
-    f = lambda a: print(a, end = " ")
-             
-    #전위 순회 : 1 2 4 5 3 6 7
-    bt.preorder_traverse(bt.get_root(), f)
-    print()
-             
-    #중위 순회: 4 2 5 1 6 3 7
-    bt.inorder_traverse(bt.get_root(), f)
-    print()
-             
-    #후위 순회 : 4 5 2 6 7 3 1
-    bt.postorder_traverse(bt.get_root(), f)
-    print ()         
+f = lambda a: print(a, end = " ")
+
+#전위 순회 : 1 2 4 5 3 6 7
+bt.preorder_traverse(bt.get_root(), f)
+print()
+
+#중위 순회: 4 2 5 1 6 3 7
+bt.inorder_traverse(bt.get_root(), f)
+print()
+
+#후위 순회 : 4 5 2 6 7 3 1
+bt.postorder_traverse(bt.get_root(), f)
+print ()         
     
 ```
