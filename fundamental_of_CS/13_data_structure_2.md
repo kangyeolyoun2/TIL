@@ -252,7 +252,7 @@ if __name__ == "__main__":
     bt.make_right_sub_tree(n2, n5)
     
     bt.make_left_sub_tree(n3, n6)
-    bt.make_right_sub_tree(n3, n7)m
+    bt.make_right_sub_tree(n3, n7)
     
     
 
